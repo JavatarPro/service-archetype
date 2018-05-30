@@ -1,0 +1,202 @@
+<archetype-descriptor name="service-archetype">
+    <requiredProperties>
+        <requiredProperty key="artifactId">
+            <validationRegex>^.*-(gateway|service)$</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="subArtifactIdPrefix"/>
+        <requiredProperty key="groupId">
+            <validationRegex>^pro\.javatar\.[a-z]{3}.*</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="version">
+            <defaultValue>0.1-SNAPSHOT</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="package">
+            <validationRegex>^pro\.javatar\.[a-z]{3}.*</validationRegex>
+        </requiredProperty>
+    </requiredProperties>
+    <fileSets>
+        <!-- top -->
+        <fileSet filtered="true">
+            <directory/>
+            <includes>
+                <include>Dockerfile</include>
+                <include>pom.xml</include>
+                <include>.gitignore</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="false">
+            <directory/>
+            <includes>
+                <include>.hgflow</include>
+            </includes>
+        </fileSet>
+
+        <!-- app -->
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-app</directory>
+            <includes>
+                <include>pom.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-app/src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="false">
+            <directory>__subArtifactIdPrefix__-app/src/main/resources</directory>
+            <includes>
+                <include>**/*.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-app/src/main/resources</directory>
+            <includes>
+                <include>**/*.xml</include>
+                <include>**/*.yml</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-app/src/test/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+
+        <!--db-api-->
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-db-api</directory>
+            <includes>
+                <include>pom.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-db-api/src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-db-api/src/main/resources</directory>
+            <includes>
+                <include>**/*.yml</include>
+                <include>**/*.properties</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-db-api/src/test/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+
+        <!--db-impl-->
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-db-impl</directory>
+            <includes>
+                <include>pom.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-db-impl/src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-db-impl/src/main/resources</directory>
+            <includes>
+                <include>**/*.yml</include>
+                <include>**/*.properties</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-db-impl/src/test/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+
+        <!--rest-->
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-rest-server</directory>
+            <includes>
+                <include>pom.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-rest-server/src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-rest-server/src/main/resources</directory>
+            <includes>
+                <include>**/*.yml</include>
+                <include>**/*.properties</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-rest-server/src/test/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+
+        <!--service-api-->
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-service-api</directory>
+            <includes>
+                <include>pom.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-service-api/src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-service-api/src/main/resources</directory>
+            <includes>
+                <include>**/*.yml</include>
+                <include>**/*.properties</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-service-api/src/test/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+
+        <!--service-impl-->
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-service-impl</directory>
+            <includes>
+                <include>pom.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-service-impl/src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-service-impl/src/main/resources</directory>
+            <includes>
+                <include>**/*.yml</include>
+                <include>**/*.properties</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-service-impl/src/test/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</archetype-descriptor>

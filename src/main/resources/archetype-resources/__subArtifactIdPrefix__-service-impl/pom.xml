@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>${groupId}</groupId>
+        <artifactId>${artifactId}</artifactId>
+        <version>${version}</version>
+    </parent>
+
+    <artifactId>${subArtifactIdPrefix}-service-impl</artifactId>
+    <packaging>jar</packaging>
+    <name>${subArtifactIdPrefix}-service-impl</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${subArtifactIdPrefix}-service-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${subArtifactIdPrefix}-db-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${maven.enforce.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>enforce-banned-dependencies</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <bannedDependencies>
+                                    <excludes>
+                                        <exclude>${package}:${subArtifactIdPrefix}-service-impl</exclude>
+                                        <exclude>${package}:${subArtifactIdPrefix}-db-impl</exclude>
+                                        <exclude>${package}:${subArtifactIdPrefix}-app</exclude>
+                                        <exclude>${package}:${subArtifactIdPrefix}-rest</exclude>
+                                        <exclude>joda-time:*</exclude>
+                                    </excludes>
+                                    <includes>
+                                    </includes>
+                                </bannedDependencies>
+                            </rules>
+                            <fail>true</fail>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
