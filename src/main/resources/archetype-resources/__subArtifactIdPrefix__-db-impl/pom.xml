@@ -7,6 +7,7 @@
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}</artifactId>
         <version>${version}</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>${subArtifactIdPrefix}-db-impl</artifactId>
@@ -14,14 +15,17 @@
     <name>${subArtifactIdPrefix}-db-impl</name>
 
     <dependencies>
+        <!-- project dependencies -->
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${subArtifactIdPrefix}-db-api</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <!-- spring dependencies -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
     </dependencies>
     <build>

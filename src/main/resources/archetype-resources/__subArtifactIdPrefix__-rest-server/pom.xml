@@ -7,6 +7,7 @@
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}</artifactId>
         <version>${version}</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>${subArtifactIdPrefix}-rest-server</artifactId>
@@ -14,11 +15,14 @@
     <name>${subArtifactIdPrefix}-rest-server</name>
 
     <dependencies>
+        <!-- project dependencies -->
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${subArtifactIdPrefix}-service-api</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <!-- spring dependencies -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
@@ -41,7 +45,8 @@
             <version>${servlet-api.version}</version>
             <scope>provided</scope>
         </dependency>
-        <!-- swagger -->
+
+        <!-- swagger dependencies -->
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
@@ -56,6 +61,7 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- tests dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

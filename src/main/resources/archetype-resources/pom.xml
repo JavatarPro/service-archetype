@@ -18,29 +18,35 @@
         <module>${subArtifactIdPrefix}-app</module>
     </modules>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.10.RELEASE</version>
-        <relativePath/>
-    </parent>
-
     <properties>
-        <sonar.exclusions>file:**/generated-sources/**</sonar.exclusions>
-        <java.version>1.8</java.version>
-        <spring-cloud.version>Edgware.SR2</spring-cloud.version>
-        <servlet-api.version>4.0.0</servlet-api.version>
-        <springfox-swagger2.version>2.8.0</springfox-swagger2.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.enforce.plugin.version>1.4.1</maven.enforce.plugin.version>
-        <docker.image>${project.artifactId}</docker.image>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <sonar.exclusions>file:**/generated-sources/**</sonar.exclusions>
+        <java.version>1.8</java.version>
+        <spring-boot.version>1.5.10.RELEASE</spring-boot.version>
+        <spring-cloud.version>Edgware.SR3</spring-cloud.version>
+        <spring-data-releasetrain.version>Ingalls-SR13</spring-data-releasetrain.version>
+        <servlet-api.version>4.0.0</servlet-api.version>
+        <springfox-swagger2.version>2.8.0</springfox-swagger2.version>
+        <docker.image>${project.artifactId}</docker.image>
+        <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <commons-lang3.version>3.7</commons-lang3.version>
     </properties>
 
 
     <dependencyManagement>
         <dependencies>
+            <!-- spring dependencies -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-releasetrain</artifactId>
+                <version>${spring-data-releasetrain.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -48,6 +54,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!-- logging dependencies -->
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -59,7 +73,8 @@
                 <artifactId>logback-gelf</artifactId>
                 <version>1.1.0</version>
             </dependency>
-            <!-- swagger -->
+
+            <!-- swagger dependencies -->
             <dependency>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-annotations</artifactId>
@@ -74,6 +89,18 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${springfox-swagger2.version}</version>
+            </dependency>
+
+            <!-- other dependencies -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${org.mapstruct.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

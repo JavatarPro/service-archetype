@@ -7,6 +7,7 @@
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}</artifactId>
         <version>${version}</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>${subArtifactIdPrefix}-service-impl</artifactId>
@@ -14,6 +15,7 @@
     <name>${subArtifactIdPrefix}-service-impl</name>
 
     <dependencies>
+        <!-- project dependencies -->
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${subArtifactIdPrefix}-service-api</artifactId>
@@ -24,6 +26,8 @@
             <artifactId>${subArtifactIdPrefix}-db-api</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <!-- spring dependencies -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
