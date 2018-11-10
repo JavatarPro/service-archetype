@@ -7,20 +7,22 @@
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}</artifactId>
         <version>${version}</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>..</relativePath>
     </parent>
 
     <artifactId>${subArtifactIdPrefix}-service-impl</artifactId>
-    <packaging>jar</packaging>
     <name>${subArtifactIdPrefix}-service-impl</name>
 
     <dependencies>
+
         <!-- project dependencies -->
+
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${subArtifactIdPrefix}-service-api</artifactId>
             <version>${project.version}</version>
         </dependency>
+
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${subArtifactIdPrefix}-db-api</artifactId>
@@ -28,11 +30,14 @@
         </dependency>
 
         <!-- spring dependencies -->
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
+
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -49,11 +54,13 @@
                             <rules>
                                 <bannedDependencies>
                                     <excludes>
-                                        <exclude>${package}:${subArtifactIdPrefix}-service-impl</exclude>
+                                        <!-- project dependencies -->
                                         <exclude>${package}:${subArtifactIdPrefix}-db-impl</exclude>
                                         <exclude>${package}:${subArtifactIdPrefix}-app</exclude>
-                                        <exclude>${package}:${subArtifactIdPrefix}-rest</exclude>
+                                        <exclude>${package}:${subArtifactIdPrefix}-rest-server</exclude>
+                                        <!-- 3rd party dependencies -->
                                         <exclude>joda-time:*</exclude>
+                                        <exclude>org.projectlombok:lombok</exclude>
                                     </excludes>
                                     <includes>
                                     </includes>

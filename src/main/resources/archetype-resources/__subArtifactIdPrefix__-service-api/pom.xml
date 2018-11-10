@@ -7,12 +7,12 @@
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}</artifactId>
         <version>${version}</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>..</relativePath>
     </parent>
 
     <artifactId>${subArtifactIdPrefix}-service-api</artifactId>
-    <packaging>jar</packaging>
     <name>${subArtifactIdPrefix}-service-api</name>
+
     <build>
         <plugins>
             <plugin>
@@ -29,12 +29,15 @@
                             <rules>
                                 <bannedDependencies>
                                     <excludes>
+                                        <!-- project dependencies -->
                                         <exclude>${package}:${subArtifactIdPrefix}-service-impl</exclude>
                                         <exclude>${package}:${subArtifactIdPrefix}-db-api</exclude>
                                         <exclude>${package}:${subArtifactIdPrefix}-db-impl</exclude>
                                         <exclude>${package}:${subArtifactIdPrefix}-app</exclude>
-                                        <exclude>${package}:${subArtifactIdPrefix}-rest</exclude>
+                                        <exclude>${package}:${subArtifactIdPrefix}-rest-server</exclude>
+                                        <!-- 3rd party dependencies -->
                                         <exclude>joda-time:*</exclude>
+                                        <exclude>org.projectlombok:lombok</exclude>
                                     </excludes>
                                     <includes>
                                     </includes>

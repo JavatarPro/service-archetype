@@ -7,35 +7,40 @@
         <groupId>${groupId}</groupId>
         <artifactId>${artifactId}</artifactId>
         <version>${version}</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>..</relativePath>
     </parent>
 
     <artifactId>${subArtifactIdPrefix}-app</artifactId>
-    <packaging>jar</packaging>
     <name>${subArtifactIdPrefix}-app</name>
 
     <dependencies>
+
         <!-- project dependencies -->
+
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${subArtifactIdPrefix}-rest-server</artifactId>
             <version>${project.version}</version>
         </dependency>
+
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${subArtifactIdPrefix}-db-api</artifactId>
             <version>${project.version}</version>
         </dependency>
+
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${subArtifactIdPrefix}-db-impl</artifactId>
             <version>${project.version}</version>
         </dependency>
+
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${subArtifactIdPrefix}-service-api</artifactId>
             <version>${project.version}</version>
         </dependency>
+
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${subArtifactIdPrefix}-service-impl</artifactId>
@@ -43,34 +48,41 @@
         </dependency>
 
         <!-- spring dependencies -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-sleuth-zipkin</artifactId>
@@ -78,11 +90,13 @@
         </dependency>
 
         <!-- tests dependencies -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -130,7 +144,9 @@
                             <rules>
                                 <bannedDependencies>
                                     <excludes>
+                                        <!-- 3rd party dependencies -->
                                         <exclude>joda-time:*</exclude>
+                                        <exclude>org.projectlombok:lombok</exclude>
                                     </excludes>
                                     <includes>
                                     </includes>

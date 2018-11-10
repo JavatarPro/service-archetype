@@ -25,9 +25,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <sonar.exclusions>file:**/generated-sources/**</sonar.exclusions>
         <java.version>1.8</java.version>
-        <spring-boot.version>1.5.10.RELEASE</spring-boot.version>
-        <spring-cloud.version>Edgware.SR3</spring-cloud.version>
-        <spring-data-releasetrain.version>Ingalls-SR13</spring-data-releasetrain.version>
+        <spring-boot.version>2.0.6.RELEASE</spring-boot.version>
+        <spring-cloud.version>Finchley.SR2</spring-cloud.version>
+        <spring-data-releasetrain.version>Lovelace-SR2</spring-data-releasetrain.version>
         <servlet-api.version>4.0.0</servlet-api.version>
         <springfox-swagger2.version>2.8.0</springfox-swagger2.version>
         <docker.image>${project.artifactId}</docker.image>
@@ -36,10 +36,11 @@
         <commons-lang3.version>3.7</commons-lang3.version>
     </properties>
 
-
     <dependencyManagement>
         <dependencies>
+
             <!-- spring dependencies -->
+
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-releasetrain</artifactId>
@@ -47,6 +48,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -54,6 +56,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -63,11 +66,13 @@
             </dependency>
 
             <!-- logging dependencies -->
+
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>de.siegmar</groupId>
                 <artifactId>logback-gelf</artifactId>
@@ -75,16 +80,19 @@
             </dependency>
 
             <!-- swagger dependencies -->
+
             <dependency>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-annotations</artifactId>
                 <version>1.5.17</version>
             </dependency>
+
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
                 <version>${springfox-swagger2.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
@@ -92,16 +100,19 @@
             </dependency>
 
             <!-- other dependencies -->
+
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct-jdk8</artifactId>
                 <version>${org.mapstruct.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -185,4 +196,5 @@
             <layout>default</layout>
         </repository>
     </repositories>
+
 </project>
