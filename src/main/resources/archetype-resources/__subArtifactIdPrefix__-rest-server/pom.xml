@@ -70,11 +70,30 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- tests dependencies -->
+        <!-- other dependencies -->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <!-- test dependencies -->
+
+        <dependency>
+            <groupId>pro.javatar.commons</groupId>
+            <artifactId>javatar-commons</artifactId>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
             <scope>test</scope>
         </dependency>
 

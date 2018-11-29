@@ -1,17 +1,17 @@
 <archetype-descriptor name="service-archetype">
     <requiredProperties>
         <requiredProperty key="artifactId">
-            <validationRegex>^.*-(gateway|service)$</validationRegex>
+            <validationRegex>^.+(-(gateway|service))?$</validationRegex>
         </requiredProperty>
         <requiredProperty key="subArtifactIdPrefix"/>
         <requiredProperty key="groupId">
-            <validationRegex>^pro\.javatar\.[a-z]{3}.*</validationRegex>
+            <validationRegex>^[a-z]{2,}.*</validationRegex>
         </requiredProperty>
         <requiredProperty key="version">
             <defaultValue>0.1-SNAPSHOT</defaultValue>
         </requiredProperty>
         <requiredProperty key="package">
-            <validationRegex>^pro\.javatar\.[a-z]{3}.*</validationRegex>
+            <validationRegex>^[a-z]{2,}.*</validationRegex>
         </requiredProperty>
     </requiredProperties>
     <fileSets>
@@ -55,6 +55,7 @@
             <includes>
                 <include>**/*.xml</include>
                 <include>**/*.yml</include>
+                <include>**/*.properties</include>
             </includes>
         </fileSet>
         <fileSet filtered="true">
@@ -117,6 +118,15 @@
                 <include>**/*.java</include>
             </includes>
         </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-db-impl/src/test/resources</directory>
+            <includes>
+                <include>**/*.xml</include>
+                <include>**/*.yml</include>
+                <include>**/*.properties</include>
+                <include>**/*.json</include>
+            </includes>
+        </fileSet>
 
         <!--rest-->
         <fileSet filtered="true">
@@ -144,6 +154,16 @@
                 <include>**/*.java</include>
             </includes>
         </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-rest-server/src/test/resources</directory>
+            <includes>
+                <include>**/*.xml</include>
+                <include>**/*.yml</include>
+                <include>**/*.properties</include>
+                <include>**/*.json</include>
+            </includes>
+        </fileSet>
+
 
         <!--service-api-->
         <fileSet filtered="true">
@@ -198,5 +218,15 @@
                 <include>**/*.java</include>
             </includes>
         </fileSet>
+        <fileSet filtered="true">
+            <directory>__subArtifactIdPrefix__-service-impl/src/test/resources</directory>
+            <includes>
+                <include>**/*.xml</include>
+                <include>**/*.yml</include>
+                <include>**/*.properties</include>
+                <include>**/*.json</include>
+            </includes>
+        </fileSet>
+
     </fileSets>
 </archetype-descriptor>

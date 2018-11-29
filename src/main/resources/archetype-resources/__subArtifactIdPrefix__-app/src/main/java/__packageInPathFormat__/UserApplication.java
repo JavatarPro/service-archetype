@@ -9,9 +9,9 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 @RefreshScope
 @EnableDiscoveryClient
 @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
-@SpringBootApplication(scanBasePackages = "pro.javatar")
-public class Application {
+@SpringBootApplication(scanBasePackages = "${package}")
+public class UserApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args); //NOSONAR
+        SpringApplication.run(UserApplication.class, args); //NOSONAR
     }
 }

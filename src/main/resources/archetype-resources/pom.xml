@@ -34,6 +34,10 @@
         <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
         <slf4j.version>1.7.25</slf4j.version>
         <commons-lang3.version>3.7</commons-lang3.version>
+        <mockito.version>1.10.19</mockito.version>
+        <javatar-commons.version>0.6</javatar-commons.version>
+        <logback-gelf.version>1.1.0</logback-gelf.version>
+        <swagger-annotations.version>1.5.17</swagger-annotations.version>
     </properties>
 
     <dependencyManagement>
@@ -76,7 +80,7 @@
             <dependency>
                 <groupId>de.siegmar</groupId>
                 <artifactId>logback-gelf</artifactId>
-                <version>1.1.0</version>
+                <version>${logback-gelf.version}</version>
             </dependency>
 
             <!-- swagger dependencies -->
@@ -84,7 +88,7 @@
             <dependency>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-annotations</artifactId>
-                <version>1.5.17</version>
+                <version>${swagger-annotations.version}</version>
             </dependency>
 
             <dependency>
@@ -113,8 +117,53 @@
                 <version>${org.mapstruct.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>pro.javatar.commons</groupId>
+                <artifactId>javatar-commons</artifactId>
+                <version>${javatar-commons.version}</version>
+            </dependency>
+
+            <!-- test dependencies -->
+
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+
+        <!-- test dependencies -->
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>hamcrest-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
 
     <build>
         <plugins>
@@ -125,6 +174,13 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>
@@ -143,6 +199,7 @@
                                     <searchTransitive>false</searchTransitive>
                                     <excludes>
                                         <exclude>joda-time:*</exclude>
+                                        <exclude>org.projectlombok:lombok</exclude>
                                     </excludes>
                                     <includes>
                                     </includes>

@@ -36,6 +36,26 @@
             <artifactId>spring-context</artifactId>
         </dependency>
 
+        <!-- other -->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-jdk8</artifactId>
+        </dependency>
+
+        <!-- test dependencies -->
+
+        <dependency>
+            <groupId>pro.javatar.commons</groupId>
+            <artifactId>javatar-commons</artifactId>
+            <scope> test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
