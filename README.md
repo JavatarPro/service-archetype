@@ -1,9 +1,14 @@
 ## Quick Start ##
+
 ```
+git clone https://github.com/JavatarPro/service-archetype.git
+cd service-archetype
+mvn clean install
+cd ..
 mvn org.apache.maven.plugins:maven-archetype-plugin:3.0.1:generate \
 -DarchetypeGroupId=pro.javatar \
 -DarchetypeArtifactId=service-archetype \
--DarchetypeVersion=1.0
+-DarchetypeVersion=1.0-SNAPSHOT
 ```
 
 ## Full Documentation
