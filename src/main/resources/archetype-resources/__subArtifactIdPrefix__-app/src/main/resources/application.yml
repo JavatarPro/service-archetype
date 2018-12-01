@@ -17,6 +17,9 @@ server:
 ---
 spring:
   profiles: default
+  jpa:
+    hibernate:
+      ddl-auto: validate
 
 eureka:
   instance:
