@@ -12,14 +12,19 @@ server:
   # Authorization HTTP header requires to enlarge max header size.
   max-http-header-size: 65000
 
-#set ( $dollar = "$")
-
 ---
 spring:
   profiles: default
   jpa:
     hibernate:
       ddl-auto: validate
+  datasource:
+    url: jdbc:h2:~/users;DB_CLOSE_ON_EXIT=FALSE
+    username: users
+    password: users
+  h2:
+    console:
+      enabled: true
 
 eureka:
   instance:
