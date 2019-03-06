@@ -6,9 +6,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-import ${package}.domain.UserTO;
+import ${package}.model.UserTO;
 import ${package}.service.UserService;
-import ${package}.service.domain.UserBO;
+import ${package}.service.model.UserBO;
 import ${package}.converter.UserTOConverter;
 import ${package}.exception.RestException;
 import ${package}.exception.NotFoundRestException;
@@ -19,10 +19,14 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping
 public class UserResource {
 
     private static final Logger logger = LoggerFactory.getLogger(UserResource.class);
+    public static final String USERS_BASE_URI = "/users";
+    public static final String USERS_BY_ID_URI = "/users/{id}";
+    public static final String USERS_BY_LOGIN_URI = "/users/login/{login}";
+    public static final String SEARCH_URI = "/users/search";
 
     private final UserService userService;
     private final UserTOConverter converter;
@@ -33,18 +37,18 @@ public class UserResource {
     }
 
     @ApiOperation("Create new user")
-    @PostMapping
+    @PostMapping(USERS_BASE_URI)
     public ResponseEntity create(@RequestBody UserTO user) {
         logger.info("Create new user={}", user);
         UserBO bo = converter.toUserBO(user);
         bo = userService.save(bo);
-        URI location = UriComponentsBuilder.fromUriString("/users/" + bo.getId()).build().toUri();
+        URI location = UriComponentsBuilder.fromPath(USERS_BY_ID_URI).build(bo.getId());
         logger.info("User location={}", location);
         return ResponseEntity.created(location).build();
     }
 
     @ApiOperation("Update user")
-    @PutMapping("/{id}")
+    @PutMapping(USERS_BY_ID_URI)
     public ResponseEntity update(@PathVariable Long id, @RequestBody UserTO user) {
         logger.info("Update user={}", user);
         user.setId(id);
@@ -54,7 +58,7 @@ public class UserResource {
     }
 
     @ApiOperation("Delete user")
-    @DeleteMapping("/{id}")
+    @DeleteMapping(USERS_BY_ID_URI)
     public ResponseEntity delete(@PathVariable Long id) {
         logger.info("Delete user by id={}", id);
         userService.delete(id);
@@ -62,7 +66,7 @@ public class UserResource {
     }
 
     @ApiOperation("Get all users")
-    @GetMapping("/search")
+    @GetMapping(SEARCH_URI)
     public List<UserTO> search() {
         logger.info("Get all users");
         List<UserBO> list = userService.findAll();
@@ -70,7 +74,7 @@ public class UserResource {
     }
 
     @ApiOperation("Get user by id")
-    @GetMapping("/{id}")
+    @GetMapping(USERS_BY_ID_URI)
     public UserTO getById(@PathVariable Long id) throws RestException {
         logger.info("Get user by id={}", id);
         try {
@@ -83,7 +87,7 @@ public class UserResource {
     }
 
     @ApiOperation("Get user by login")
-    @GetMapping("/login/{login}")
+    @GetMapping(USERS_BY_LOGIN_URI)
     public UserTO getByLogin(@PathVariable String login) throws RestException {
         logger.info("Get user by login={}", login);
         try {
@@ -96,7 +100,7 @@ public class UserResource {
     }
 
     @ApiOperation("Get user by email")
-    @GetMapping("/emails/{email:.*}")
+    @GetMapping(USERS_BASE_URI + "/emails/{email:.*}")
     public UserTO getByEmail(@PathVariable String email) throws RestException {
         logger.info("Get user by email={}", email);
         try {

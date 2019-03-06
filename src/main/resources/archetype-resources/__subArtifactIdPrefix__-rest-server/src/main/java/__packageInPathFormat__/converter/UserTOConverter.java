@@ -1,8 +1,8 @@
 package ${package}.converter;
 
 import org.mapstruct.Mapper;
-import ${package}.domain.UserTO;
-import ${package}.service.domain.UserBO;
+import ${package}.model.UserTO;
+import ${package}.service.model.UserBO;
 
 import java.util.List;
 

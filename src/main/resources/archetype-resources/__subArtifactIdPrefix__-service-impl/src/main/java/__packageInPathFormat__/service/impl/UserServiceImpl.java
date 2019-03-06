@@ -4,11 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import ${package}.repository.UserRepository;
-import ${package}.repository.domain.UserPO;
+import ${package}.repository.model.UserPO;
 import ${package}.repository.exception.UserNotFoundDBException;
 import ${package}.service.UserService;
 import ${package}.service.converter.UserBOConverter;
-import ${package}.service.domain.UserBO;
+import ${package}.service.model.UserBO;
 import ${package}.service.exception.UserNotFoundServiceException;
 
 import java.util.List;

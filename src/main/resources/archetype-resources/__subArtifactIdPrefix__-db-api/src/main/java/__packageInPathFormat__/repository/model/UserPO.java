@@ -1,15 +1,15 @@
-package ${package}.service.domain;
+package ${package}.repository.model;
 
 
 import java.util.Objects;
 
-public class UserBO {
+public class UserPO {
     private Long id;
     private String login;
     private String lastName;
     private String firstName;
     private String email;
-    private SexBO sex;
+    private SexPO sex;
 
     public Long getId() {
         return id;
@@ -51,11 +51,11 @@ public class UserBO {
         this.email = email;
     }
 
-    public SexBO getSex() {
+    public SexPO getSex() {
         return sex;
     }
 
-    public void setSex(SexBO sex) {
+    public void setSex(SexPO sex) {
         this.sex = sex;
     }
 
@@ -63,13 +63,13 @@ public class UserBO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserBO userBO = (UserBO) o;
-        return Objects.equals(id, userBO.id) &&
-                       Objects.equals(login, userBO.login) &&
-                       Objects.equals(lastName, userBO.lastName) &&
-                       Objects.equals(firstName, userBO.firstName) &&
-                       Objects.equals(email, userBO.email) &&
-                       sex == userBO.sex;
+        UserPO userPO = (UserPO) o;
+        return Objects.equals(id, userPO.id) &&
+                       Objects.equals(login, userPO.login) &&
+                       Objects.equals(lastName, userPO.lastName) &&
+                       Objects.equals(firstName, userPO.firstName) &&
+                       Objects.equals(email, userPO.email) &&
+                       sex == userPO.sex;
     }
 
     @Override
@@ -79,7 +79,7 @@ public class UserBO {
 
     @Override
     public String toString() {
-        return "UserBO{" +
+        return "UserPO{" +
                        "id=" + id +
                        ", login='" + login + '\'' +
                        ", lastName='" + lastName + '\'' +

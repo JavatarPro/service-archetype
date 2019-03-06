@@ -1,8 +1,8 @@
 package ${package}.repository.converter;
 
 import org.mapstruct.Mapper;
-import ${package}.repository.domain.UserEntity;
-import ${package}.repository.domain.UserPO;
+import ${package}.repository.model.UserEntity;
+import ${package}.repository.model.UserPO;
 
 import java.util.List;
 

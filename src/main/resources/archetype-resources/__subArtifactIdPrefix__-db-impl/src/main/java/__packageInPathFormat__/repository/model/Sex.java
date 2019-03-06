@@ -1,4 +1,4 @@
-package ${package}.repository.domain;
+package ${package}.repository.model;
 
 public enum Sex {
     FEMALE, MALE

@@ -1,7 +1,7 @@
-package ${package}.domain;
+package ${package}.model;
 
 
-import ${package}.service.domain.SexBO;
+import ${package}.service.model.SexBO;
 
 import java.util.Objects;
 

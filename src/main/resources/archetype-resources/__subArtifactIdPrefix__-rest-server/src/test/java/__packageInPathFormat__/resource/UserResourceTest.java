@@ -19,10 +19,10 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import pro.javatar.commons.reader.JsonReader;
 import pro.javatar.commons.reader.YamlReader;
 import ${package}.converter.UserTOConverter;
-import ${package}.domain.UserTO;
+import ${package}.model.UserTO;
 import ${package}.exception.ExceptionAdvisor;
 import ${package}.service.UserService;
-import ${package}.service.domain.UserBO;
+import ${package}.service.model.UserBO;
 import ${package}.service.exception.UserNotFoundServiceException;
 
 import java.io.IOException;

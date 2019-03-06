@@ -1,30 +1,15 @@
-package ${package}.repository.domain;
+package ${package}.service.model;
 
-import javax.persistence.*;
+
 import java.util.Objects;
 
-@Entity
-@Table(name = "users")
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserBO {
     private Long id;
-
-    @Column(unique = true, updatable = false)
     private String login;
-
-    @Column(unique = true, updatable = false)
-    private String email;
-
-    @Column
     private String lastName;
-
-    @Column
     private String firstName;
-
-    @Column
-    @Enumerated(EnumType.STRING)
-    private Sex sex;
+    private String email;
+    private SexBO sex;
 
     public Long getId() {
         return id;
@@ -40,14 +25,6 @@ public class UserEntity {
 
     public void setLogin(String login) {
         this.login = login;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getLastName() {
@@ -66,11 +43,19 @@ public class UserEntity {
         this.firstName = firstName;
     }
 
-    public Sex getSex() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public SexBO getSex() {
         return sex;
     }
 
-    public void setSex(Sex sex) {
+    public void setSex(SexBO sex) {
         this.sex = sex;
     }
 
@@ -78,28 +63,28 @@ public class UserEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserEntity that = (UserEntity) o;
-        return Objects.equals(id, that.id) &&
-                       Objects.equals(login, that.login) &&
-                       Objects.equals(email, that.email) &&
-                       Objects.equals(lastName, that.lastName) &&
-                       Objects.equals(firstName, that.firstName) &&
-                       sex == that.sex;
+        UserBO userBO = (UserBO) o;
+        return Objects.equals(id, userBO.id) &&
+                       Objects.equals(login, userBO.login) &&
+                       Objects.equals(lastName, userBO.lastName) &&
+                       Objects.equals(firstName, userBO.firstName) &&
+                       Objects.equals(email, userBO.email) &&
+                       sex == userBO.sex;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, login, email, lastName, firstName, sex);
+        return Objects.hash(id, login, lastName, firstName, email, sex);
     }
 
     @Override
     public String toString() {
-        return "UserEntity{" +
+        return "UserBO{" +
                        "id=" + id +
                        ", login='" + login + '\'' +
-                       ", email='" + email + '\'' +
                        ", lastName='" + lastName + '\'' +
                        ", firstName='" + firstName + '\'' +
+                       ", email='" + email + '\'' +
                        ", sex=" + sex +
                        '}';
     }

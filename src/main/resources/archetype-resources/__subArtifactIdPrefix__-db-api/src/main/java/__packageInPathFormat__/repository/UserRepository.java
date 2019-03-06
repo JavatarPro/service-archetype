@@ -1,7 +1,7 @@
 package ${package}.repository;
 
 
-import ${package}.repository.domain.UserPO;
+import ${package}.repository.model.UserPO;
 import ${package}.repository.exception.UserNotFoundDBException;
 
 import java.util.List;

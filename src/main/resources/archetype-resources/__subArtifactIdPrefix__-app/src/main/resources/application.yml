@@ -1,5 +1,7 @@
 spring:
   application.name: ${artifactId}
+  main:
+    allow-bean-definition-overriding: true
 
 info:
   app:

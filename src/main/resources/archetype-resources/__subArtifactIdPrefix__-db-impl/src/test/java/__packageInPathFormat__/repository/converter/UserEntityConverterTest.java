@@ -4,8 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mapstruct.factory.Mappers;
 import pro.javatar.commons.reader.YamlReader;
-import ${package}.repository.domain.UserEntity;
-import ${package}.repository.domain.UserPO;
+import ${package}.repository.model.UserEntity;
+import ${package}.repository.model.UserPO;
 
 import java.io.IOException;
 import java.util.Collections;

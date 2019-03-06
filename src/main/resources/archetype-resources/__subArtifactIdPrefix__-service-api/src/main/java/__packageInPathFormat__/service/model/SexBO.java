@@ -1,4 +1,4 @@
-package ${package}.service.domain;
+package ${package}.service.model;
 
 public enum SexBO {
     FEMALE, MALE

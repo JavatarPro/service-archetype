@@ -8,8 +8,8 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import ${package}.repository.UserJpaRepository;
 import ${package}.repository.converter.UserEntityConverter;
-import ${package}.repository.domain.UserEntity;
-import ${package}.repository.domain.UserPO;
+import ${package}.repository.model.UserEntity;
+import ${package}.repository.model.UserPO;
 import ${package}.repository.exception.UserNotFoundDBException;
 
 import java.util.Collections;

@@ -1,7 +1,7 @@
 package ${package}.service;
 
 
-import ${package}.service.domain.UserBO;
+import ${package}.service.model.UserBO;
 import ${package}.service.exception.UserNotFoundServiceException;
 
 import java.util.List;

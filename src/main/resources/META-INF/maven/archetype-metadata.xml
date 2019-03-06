@@ -108,6 +108,7 @@
         <fileSet filtered="true">
             <directory>__subArtifactIdPrefix__-db-impl/src/main/resources</directory>
             <includes>
+                <include>**/*.sql</include>
                 <include>**/*.yml</include>
                 <include>**/*.properties</include>
             </includes>

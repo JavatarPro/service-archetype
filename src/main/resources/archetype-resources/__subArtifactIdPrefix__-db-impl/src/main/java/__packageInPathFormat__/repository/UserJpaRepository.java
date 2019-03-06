@@ -2,7 +2,7 @@ package ${package}.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
-import ${package}.repository.domain.UserEntity;
+import ${package}.repository.model.UserEntity;
 
 import java.util.Optional;
 

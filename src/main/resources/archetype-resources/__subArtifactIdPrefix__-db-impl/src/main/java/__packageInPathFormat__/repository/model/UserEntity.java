@@ -1,15 +1,30 @@
-package ${package}.repository.domain;
+package ${package}.repository.model;
 
-
+import javax.persistence.*;
 import java.util.Objects;
 
-public class UserPO {
+@Entity
+@Table(name = "users")
+public class UserEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(unique = true, updatable = false)
     private String login;
-    private String lastName;
-    private String firstName;
+
+    @Column(unique = true, updatable = false)
     private String email;
-    private SexPO sex;
+
+    @Column
+    private String lastName;
+
+    @Column
+    private String firstName;
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Sex sex;
 
     public Long getId() {
         return id;
@@ -25,6 +40,14 @@ public class UserPO {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getLastName() {
@@ -43,19 +66,11 @@ public class UserPO {
         this.firstName = firstName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public SexPO getSex() {
+    public Sex getSex() {
         return sex;
     }
 
-    public void setSex(SexPO sex) {
+    public void setSex(Sex sex) {
         this.sex = sex;
     }
 
@@ -63,28 +78,28 @@ public class UserPO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserPO userPO = (UserPO) o;
-        return Objects.equals(id, userPO.id) &&
-                       Objects.equals(login, userPO.login) &&
-                       Objects.equals(lastName, userPO.lastName) &&
-                       Objects.equals(firstName, userPO.firstName) &&
-                       Objects.equals(email, userPO.email) &&
-                       sex == userPO.sex;
+        UserEntity that = (UserEntity) o;
+        return Objects.equals(id, that.id) &&
+                       Objects.equals(login, that.login) &&
+                       Objects.equals(email, that.email) &&
+                       Objects.equals(lastName, that.lastName) &&
+                       Objects.equals(firstName, that.firstName) &&
+                       sex == that.sex;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, login, lastName, firstName, email, sex);
+        return Objects.hash(id, login, email, lastName, firstName, sex);
     }
 
     @Override
     public String toString() {
-        return "UserPO{" +
+        return "UserEntity{" +
                        "id=" + id +
                        ", login='" + login + '\'' +
+                       ", email='" + email + '\'' +
                        ", lastName='" + lastName + '\'' +
                        ", firstName='" + firstName + '\'' +
-                       ", email='" + email + '\'' +
                        ", sex=" + sex +
                        '}';
     }

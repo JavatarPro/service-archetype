@@ -3,8 +3,8 @@ package ${package}.repository.impl;
 import org.springframework.stereotype.Component;
 import ${package}.repository.UserJpaRepository;
 import ${package}.repository.UserRepository;
-import ${package}.repository.domain.UserEntity;
-import ${package}.repository.domain.UserPO;
+import ${package}.repository.model.UserEntity;
+import ${package}.repository.model.UserPO;
 import ${package}.repository.exception.UserNotFoundDBException;
 import ${package}.repository.converter.UserEntityConverter;
 

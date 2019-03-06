@@ -1,8 +1,8 @@
 package ${package}.service.converter;
 
 import org.mapstruct.Mapper;
-import ${package}.repository.domain.UserPO;
-import ${package}.service.domain.UserBO;
+import ${package}.repository.model.UserPO;
+import ${package}.service.model.UserBO;
 
 import java.util.List;
 

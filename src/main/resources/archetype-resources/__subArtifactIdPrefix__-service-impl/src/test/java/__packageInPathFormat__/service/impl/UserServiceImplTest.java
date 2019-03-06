@@ -7,10 +7,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import ${package}.repository.UserRepository;
-import ${package}.repository.domain.UserPO;
+import ${package}.repository.model.UserPO;
 import ${package}.repository.exception.UserNotFoundDBException;
 import ${package}.service.converter.UserBOConverter;
-import ${package}.service.domain.UserBO;
+import ${package}.service.model.UserBO;
 import ${package}.service.exception.UserNotFoundServiceException;
 
 import java.util.Collections;
